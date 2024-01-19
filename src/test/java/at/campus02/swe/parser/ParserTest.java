@@ -86,4 +86,34 @@ public class ParserTest {
         verifyNoMoreInteractions(cal);
     }
 
+    @Test
+    public void testParserSin() throws Exception {
+
+        Calculator cal = mock(Calculator.class);
+
+        Parser parser = new Parser(cal);
+        parser.parse(new File("src/test/resources/sin01-test.xml"));
+
+        verify(cal).push(90.0);
+        verify(cal).perform(Operation.sin);
+
+        verifyNoMoreInteractions(cal);
+    }
+
+    @Test
+    public void testParserCos() throws Exception {
+
+        Calculator cal = mock(Calculator.class);
+
+        Parser parser = new Parser(cal);
+        parser.parse(new File("src/test/resources/cos01-test.xml"));
+
+        verify(cal).push(180.0);
+        verify(cal).perform(Operation.cos);
+
+        verifyNoMoreInteractions(cal);
+    }
+
+
+
 }

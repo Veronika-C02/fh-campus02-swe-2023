@@ -34,4 +34,26 @@ public class TestsE2E {
 
     }
 
+    @Test
+    public void e2eTestAdditionOfSin90AndCos0() throws Exception {
+
+        Calculator cal = new CalculatorImpl();
+        Parser parser = new Parser(cal);
+        double result = parser.parse(new File("src/test/resources/e2e-test03.xml"));
+
+        Assert.assertEquals(2.0,result,0);
+
+    }
+
+    @Test
+    public void e2eTestSubtractionOfSin90AndCos0() throws Exception {
+
+        Calculator cal = new CalculatorImpl();
+        Parser parser = new Parser(cal);
+        double result = parser.parse(new File("src/test/resources/e2e-test04.xml"));
+
+        Assert.assertEquals(0.0,result,0);
+
+    }
+
 }
