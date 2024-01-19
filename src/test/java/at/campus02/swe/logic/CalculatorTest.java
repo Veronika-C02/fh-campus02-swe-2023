@@ -131,6 +131,40 @@ public class CalculatorTest {
         }
     }
 
+    @Test
+    public void testSin90Degrees() throws CalculatorException{
+        //Setup
+        Calculator calc = new CalculatorImpl();
+        calc.push(90.0);
+        calc.push(90.0);
+
+        double result = calc.perform(Operation.sin);
+        assertEquals(1, result, 0);
+    }
+
+    @Test
+    public void testCos0Degrees() throws CalculatorException{
+        //Setup
+        Calculator calc = new CalculatorImpl();
+        calc.push(0.0);
+        calc.push(0.0);
+
+        double result = calc.perform(Operation.cos);
+        assertEquals(1, result, 0);
+    }
+
+    @Test
+    public void testCos180Degrees() throws CalculatorException{
+        //Setup
+        Calculator calc = new CalculatorImpl();
+        calc.push(180.0);
+        calc.push(180.0);
+
+        double result = calc.perform(Operation.cos);
+        assertEquals(-1, result, 0);
+    }
+
+
 
 
 }
