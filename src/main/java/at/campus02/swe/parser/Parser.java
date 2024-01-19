@@ -84,6 +84,9 @@ public class Parser {
             return Operation.sin;
         else if ("cos".equals(value))
             return Operation.cos;
+        else if ("random".equals(value)) {
+            return Operation.random;
+        }
 
         throw new CalculatorException("Unsupported Operation!");
     }
