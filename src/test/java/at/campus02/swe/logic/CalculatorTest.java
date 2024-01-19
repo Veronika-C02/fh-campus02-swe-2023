@@ -4,10 +4,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
-
+import static org.junit.Assert.assertTrue;
 import at.campus02.swe.Calculator;
 import at.campus02.swe.CalculatorException;
 import at.campus02.swe.Calculator.Operation;
+
 
 public class CalculatorTest {
 
@@ -164,6 +165,21 @@ public class CalculatorTest {
         assertEquals(-1, result, 0);
     }
 
+    @Test
+    public void testrandom1() throws Exception {
+
+        //setup
+        Calculator calc = new CalculatorImpl();
+
+        //execute
+        calc.push(5);
+        calc.push(3);
+        double result = calc.perform(Operation.random);
+
+        //verify
+        assertTrue(result == 3 || result == 4 || result == 5);
+
+    }
 
 
 

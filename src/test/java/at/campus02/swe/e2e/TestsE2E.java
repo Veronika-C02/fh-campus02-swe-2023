@@ -8,6 +8,8 @@ import org.junit.Test;
 
 import java.io.File;
 
+import static org.junit.Assert.assertTrue;
+
 public class TestsE2E {
 
     @Test
@@ -53,6 +55,17 @@ public class TestsE2E {
         double result = parser.parse(new File("src/test/resources/e2e-test04.xml"));
 
         Assert.assertEquals(0.0,result,0);
+
+    }
+
+    @Test
+    public void e2eTestrandom() throws Exception {
+
+        Calculator cal = new CalculatorImpl();
+        Parser parser = new Parser(cal);
+        double result = parser.parse(new File("src/test/resources/e2e-test05.xml"));
+
+        assertTrue(result == 1 || result == 2 || result == 3);
 
     }
 
