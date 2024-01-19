@@ -36,6 +36,8 @@ public class CalculatorImpl implements Calculator {
                return Math.sin(a);
             case cos:
                 return Math.cos(a);
+            case random:
+                return (int) ((Math.random() * (a - b)) + b);
         }
         return 0;
     }
