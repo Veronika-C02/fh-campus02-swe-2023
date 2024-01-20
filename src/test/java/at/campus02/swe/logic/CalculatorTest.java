@@ -1,13 +1,11 @@
 package at.campus02.swe.logic;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
 import org.junit.Test;
-import static org.junit.Assert.assertTrue;
 import at.campus02.swe.Calculator;
 import at.campus02.swe.CalculatorException;
 import at.campus02.swe.Calculator.Operation;
+
+import static org.junit.Assert.*;
 
 
 public class CalculatorTest {
@@ -179,6 +177,57 @@ public class CalculatorTest {
         //verify
         assertTrue(result == 3 || result == 4 || result == 5);
 
+    }
+
+    @Test
+    public void testDotProductVectorLength2() throws CalculatorException{
+        //Setup
+        Calculator calc = new CalculatorImpl();
+        calc.push(1); // Vektor a
+        calc.push(3); // Vektor a
+        calc.push(2); // Vektor b
+        calc.push(4); // Vektor b
+
+        calc.push(2.0); // Anzahl der Elemente
+
+        double result = calc.perform(Operation.dotproduct);
+        assertEquals(14, result, 0);
+    }
+
+    @Test
+    public void testDotProductVectorLength3() throws CalculatorException{
+        //Setup
+        Calculator calc = new CalculatorImpl();
+        calc.push(1); // Vektor a
+        calc.push(3); // Vektor a
+        calc.push(1); // Vektor a
+        calc.push(2); // Vektor b
+        calc.push(4); // Vektor b
+        calc.push(4); // Vektor b
+
+        calc.push(3.0); // Anzahl der Elemente
+
+        double result = calc.perform(Operation.dotproduct);
+        assertEquals(18, result, 0);
+    }
+
+    @Test
+    public void testDotProductNegativeTest() throws CalculatorException, NegativeArraySizeException{
+        //Setup
+        Calculator calc = new CalculatorImpl();
+        calc.push(1); // Vektor a
+        calc.push(3); // Vektor a
+        calc.push(2); // Vektor b
+        calc.push(4); // Vektor b
+
+        calc.push(-2); // Anzahl der Elemente
+
+        try{
+            calc.perform(Operation.dotproduct);
+            fail("Expection expected");
+        } catch (NegativeArraySizeException e){
+            assertEquals("Wrong Entry, Vektor must be grater than 0",e.getMessage());
+        }
     }
 
 

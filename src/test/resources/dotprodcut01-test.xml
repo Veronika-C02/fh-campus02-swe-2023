@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<calculation>
+    <push value="1.0" />
+    <push value="3.0" />
+    <push value="5.0" />
+    <push value="4.0" />
+    <push value="2.0" />
+    <operation value="dotproduct" />
+</calculation>

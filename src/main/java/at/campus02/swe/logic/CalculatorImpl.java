@@ -53,19 +53,21 @@ public class CalculatorImpl implements Calculator {
                 return (int) ((Math.random() * (a - b)) + b);
             case dotproduct:
                 int amount = (int) pop();
+                if (amount <= 0 )
+                    throw new NegativeArraySizeException ("Wrong Entry, Vektor must be grater than 0");
+
                 double result = 0;
-                double[] vectorA = new double[amount-1];
-                double[] vectorB = new double[amount-1];
-                for (int i = 0; i  < amount-1; i++) {
+                double[] vectorA = new double[amount];
+                double[] vectorB = new double[amount];
+                for (int i = 0; i  < amount; i++) {
                     vectorA[i] = pop();
                 }
-                for (int i = 0; i  < amount-1; i++) {
+                for (int i = 0; i  < amount; i++) {
                     vectorB[i] = pop();
                 }
-                for (int i = 0; i < amount-1; i++) {
+                for (int i = 0; i < amount; i++) {
                     result += vectorA[i]*vectorB[i];
                 }
-
                 return result;
         }
         return 0;
