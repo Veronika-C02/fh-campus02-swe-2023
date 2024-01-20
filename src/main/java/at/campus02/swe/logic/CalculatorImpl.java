@@ -13,31 +13,59 @@ public class CalculatorImpl implements Calculator {
     @Override
     public double perform(Operation op) throws CalculatorException {
 
-        double b = pop();
-        double a = pop();
-
+        double b;
+        double a;
         switch (op) {
             case add:
+                b = pop();
+                a = pop();
                 return a + b;
             case sub:
+                b = pop();
+                a = pop();
                 return a - b;
             case div:
+                b = pop();
+                a = pop();
                 double c = a / b;
                 if (Double.isInfinite(c))
                     throw new CalculatorException("Division by zero");
                 return c;
             case mul:
+                b = pop();
+                a = pop();
                 return a * b;
             case mod:
+                b = pop();
+                a = pop();
                 if (b == 0)
                     throw new CalculatorException("Division by zero");
                 return a % b;
             case sin:
+                a = pop();
                return Math.sin(Math.toRadians(a));
             case cos:
+                a = pop();
                 return Math.cos(Math.toRadians(a));
             case random:
+                b = pop();
+                a = pop();
                 return (int) ((Math.random() * (a - b)) + b);
+            case dotproduct:
+                int amount = (int) pop();
+                double result = 0;
+                double[] vectorA = new double[amount-1];
+                double[] vectorB = new double[amount-1];
+                for (int i = 0; i  < amount-1; i++) {
+                    vectorA[i] = pop();
+                }
+                for (int i = 0; i  < amount-1; i++) {
+                    vectorB[i] = pop();
+                }
+                for (int i = 0; i < amount-1; i++) {
+                    result += vectorA[i]*vectorB[i];
+                }
+                return result;
         }
         return 0;
     }
