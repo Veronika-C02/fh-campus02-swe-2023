@@ -65,6 +65,7 @@ public class CalculatorImpl implements Calculator {
                 for (int i = 0; i < amount-1; i++) {
                     result += vectorA[i]*vectorB[i];
                 }
+
                 return result;
         }
         return 0;
