@@ -114,6 +114,24 @@ public class ParserTest {
         verifyNoMoreInteractions(cal);
     }
 
+    @Test
+    public void testParserDotProduct() throws Exception {
+
+        Calculator cal = mock(Calculator.class);
+
+        Parser parser = new Parser(cal);
+        parser.parse(new File("src/test/resources/dotprodcut01-test.xml"));
+
+        verify(cal).push(1.0);
+        verify(cal).push(3.0);
+        verify(cal).push(5.0);
+        verify(cal).push(4.0);
+        verify(cal).push(2.0);
+        verify(cal).perform(Operation.dotproduct);
+
+        verifyNoMoreInteractions(cal);
+    }
+
 
 
 }
