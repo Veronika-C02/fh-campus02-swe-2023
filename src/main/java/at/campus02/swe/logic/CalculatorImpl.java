@@ -9,6 +9,7 @@ import java.util.Stack;
 public class CalculatorImpl implements Calculator {
 
     private Stack<Double> stack_ = new Stack<Double>();
+    private Double tmp;
 
     @Override
     public double perform(Operation op) throws CalculatorException {
@@ -78,6 +79,18 @@ public class CalculatorImpl implements Calculator {
         if (stack_.isEmpty())
             throw new CalculatorException();
         return stack_.pop();
+    }
+
+    @Override
+    public void store(double result) throws CalculatorException {
+        tmp = result;
+    }
+
+    @Override
+    public double load() throws CalculatorException {
+        if(tmp == null)
+            throw new CalculatorException("Fehler CalcImpl");
+        return tmp;
     }
 
     @Override

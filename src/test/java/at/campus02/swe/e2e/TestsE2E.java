@@ -69,4 +69,16 @@ public class TestsE2E {
 
     }
 
+    @Test
+    public void e2eTestStoreandLoad() throws Exception {
+
+        Calculator cal = new CalculatorImpl();
+        Parser parser = new Parser(cal);
+        double result = parser.parse(new File("src/test/resources/e2e-store-load-test01.xml"));
+
+        Assert.assertEquals(9.0,result,0);
+
+    }
+
+
 }

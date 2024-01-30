@@ -10,6 +10,10 @@ public interface Calculator {
 
     double pop() throws CalculatorException;
 
+    void store(double result) throws CalculatorException;
+
+    double load() throws CalculatorException;
+
     double perform(Operation op) throws CalculatorException;
 
     void clear();

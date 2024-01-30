@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<calculation>
+    <push value="2" />
+    <push value="3" />
+    <operation value="+" />   <!-- result = 5 -->
+    <store/>                  <!-- stores = 5 -->
+    <push value="result"/>
+    <push value="4"/>
+    <operation value="+" />   <!-- result = 9 -->
+    <push value="result"/>
+    <load/>                   <!-- loads = 5 -->
+    <push value="result"/>
+    <operation value="*" />   <!-- result = 45 -->
+    <store/>                  <!-- stores result -->
+    <push value="result"/>
+    <push value="5"/>
+    <operation value="/" />   <!-- expected result = 9 -->
+    </calculation>
