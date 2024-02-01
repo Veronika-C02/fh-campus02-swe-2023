@@ -15,6 +15,7 @@ import javax.xml.stream.events.*;
 public class Parser {
 
     private Calculator calc_;
+    private double stored;
 
     public Parser(Calculator cal) {
         if (cal == null)
@@ -42,7 +43,13 @@ public class Parser {
             } else if ("pop"
                     .equals(e.asStartElement().getName().getLocalPart())) {
                 calc_.pop();
-            } else if ("operation".equals(e.asStartElement().getName()
+            } else if ("store"
+                    .equals(e.asStartElement().getName().getLocalPart())) {
+                calc_.store(result);
+            } else if ("load"
+                    .equals(e.asStartElement().getName().getLocalPart())) {
+                result = calc_.load();}
+            else if ("operation".equals(e.asStartElement().getName()
                     .getLocalPart())) {
                 result = calc_.perform(readOperation(value));
             }
